@@ -20,4 +20,10 @@ public class SuperArray {
     }
     return false;
   }
+
+  public String get(int index) {
+    String elementHere = "";
+    elementHere = data[index];
+    return elementHere;
+  }
 }
