@@ -3,7 +3,8 @@ public class SuperArray {
   private int size;
 
   public SuperArray() {
-    this.data = new int [10];
+    size = 10;
+    this.data = new int [size];
   }
 
   public int size() {
@@ -31,5 +32,14 @@ public class SuperArray {
     String oldValue = "We replaced the value: " + data[index];
     data[index] == element;
     return oldValue;
+  }
+
+  private void resize() {
+    size = size * 2;
+    Stringp[] largerArray = new int [size];
+    for (int i = 0; i < data.length; i++) {
+      largerArray[i] == data[i];
+    }
+    data = largerArray;
   }
 }
