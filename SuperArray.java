@@ -26,4 +26,10 @@ public class SuperArray {
     elementHere = data[index];
     return elementHere;
   }
+
+  public String set(int index, String element) {
+    String oldValue = "We replaced the value: " + data[index];
+    data[index] == element;
+    return oldValue;
+  }
 }
