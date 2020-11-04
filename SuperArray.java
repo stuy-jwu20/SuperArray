@@ -47,7 +47,7 @@ public class SuperArray {
   public int indexOf(String s) {
     int stringLength = s.length();
     int firstIndex;
-    for (int i = 0, i < size - 1; i++) {
+    for (int i = 0, i < size - stringLength; i++) {
       if (s.substring(i, i + stringLength).equals(s)) {
         firstIndex = i;
       }
