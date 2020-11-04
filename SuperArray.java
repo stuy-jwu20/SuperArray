@@ -37,14 +37,22 @@ public class SuperArray {
     String removedString = "" + data[index];
     String tempString = "";
     for (int i = index + 1; i < size - 1; i++) {
-
+      tempString = "" + data[i];
+      set(i-1, tempString);
     }
 
     return removedString;
   }
 
   public int indexOf(String s) {
-
+    int stringLength = s.length();
+    int firstIndex;
+    for (int i = 0, i < size - 1; i++) {
+      if (s.substring(i, i + stringLength).equals(s)) {
+        firstIndex = i;
+      }
+    }
+    return firstIndex;
   }
 
   public Stringp[] toArray() {
