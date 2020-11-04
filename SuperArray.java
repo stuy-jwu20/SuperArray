@@ -43,6 +43,13 @@ public class SuperArray {
     return arrToString;
   }
 
+  public boolean contains(String s) {
+    for (int i = 0; i < size - 1; i++) {
+      if (data[i].equals(s)) return true;
+    }
+    return false;
+  }
+
   public int size() {
     int numberItems = 0;
     for (int i = 0; i < size-1; i++) {
