@@ -6,7 +6,7 @@ public class SuperArray {
     if (size() == 0) {
       size += 1;
     } else {
-    size = size * 2;      
+    size = size * 2;
     }
     String[] largerArray = new String [size];
     for (int i = 0; i < data.length-1; i++) {
@@ -25,6 +25,11 @@ public class SuperArray {
 
   public SuperArray() {
     size = 10;
+    this.data = new String [size];
+  }
+
+  public SuperArray(int initialCapacity) {
+    size = initialCapacity;
     this.data = new String [size];
   }
 
