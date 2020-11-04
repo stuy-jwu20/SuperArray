@@ -55,8 +55,9 @@ public class SuperArray {
     return firstIndex;
   }
 
-  public Stringp[] toArray() {
-
+  public String[] toArray() {
+    String[] safeArray = data;
+    return safeArray;
   }
 
   public SuperArray() {
