@@ -76,11 +76,11 @@ public class SuperArray {
 
   public String toString() {
     String arrToString = "[";
-    for (int i = 0; i < size + 1; i++) {
-      if ((data[i] != null) && (i < size)) {
+    for (int i = 0; i < size - 1; i++) {
+      if (i < size() -1) {
         arrToString += data[i] + ", ";
       }
-      else if ((data[i] != null) && (i == size - 1)) {
+      else if ((i == size() - 1)) {
         arrToString += data[i];
       } else {
       }
