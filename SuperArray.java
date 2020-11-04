@@ -3,7 +3,7 @@ public class SuperArray {
   private int size;
 
   private void resize(){
-    if (size() == 0) {
+    if (size == 0) {
       size += 1;
     } else {
     size = size * 2;
@@ -21,6 +21,34 @@ public class SuperArray {
       add(null);
       count++;
     }
+  }
+
+  public void add(int index, String element) {
+    if (size() == size) resize();
+    String tempString = "" + data[index];
+    set(index, element);
+    for (int i = index + 1; i < size - 1; i++) {
+      set(i, tempString);
+      tempString = "" + data[i+1];
+    }
+  }
+
+  public String remove(int index) {
+    String removedString = "" + data[index];
+    String tempString = "";
+    for (int i = index + 1; i < size - 1; i++) {
+
+    }
+
+    return removedString;
+  }
+
+  public int indexOf(String s) {
+
+  }
+
+  public Stringp[] toArray() {
+
   }
 
   public SuperArray() {
