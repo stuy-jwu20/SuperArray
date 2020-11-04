@@ -27,7 +27,7 @@ public class SuperArray {
     if (size() == size) resize();
     String tempString = "" + data[index];
     set(index, element);
-    for (int i = index + 1; i < size - 1; i++) {
+    for (int i = index + 1; i < size() - 1; i++) {
       set(i, tempString);
       tempString = "" + data[i+1];
     }
@@ -36,19 +36,19 @@ public class SuperArray {
   public String remove(int index) {
     String removedString = "" + data[index];
     String tempString = "";
-    for (int i = index + 1; i < size - 1; i++) {
-      tempString = "" + data[i];
-      set(i-1, tempString);
+    for (int i = index; i < size() - 1; i++) {
+      tempString = "" + data[i+1];
+      set(i, tempString);
     }
-
+    set(size()-1, null);
     return removedString;
   }
 
   public int indexOf(String s) {
     int stringLength = s.length();
     int firstIndex = -1;
-    for (int i = 0; i < size - stringLength; i++) {
-      if (s.substring(i, i + stringLength).equals(s)) {
+    for (int i = 0; i < size() - 1; i++) {
+      if (data[i].equals(s)) {
         firstIndex = i;
       }
     }
@@ -90,7 +90,7 @@ public class SuperArray {
   }
 
   public boolean contains(String s) {
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size() - 1; i++) {
       if (data[i].equals(s)) return true;
     }
     return false;
@@ -105,9 +105,10 @@ public class SuperArray {
   }
 
   public boolean add(String element) {
-    for (int i = 0; i < size-1; i++) {
+    if (size() == size) resize();
+    for (int i = 0; i < size; i++) {
       if (data[i] == null) {
-        data[i] = element;
+        set(i, element);
         return true;
       }
       if ((data[i] != null) && (i == size-2)) {
