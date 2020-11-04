@@ -11,9 +11,21 @@ public class SuperArray {
     data = largerArray;
   }
 
+  public void clear() {
+    int count = 0;
+    while (count < size()) {
+      add(null);
+      count++;
+    }
+  }
+
   public SuperArray() {
     size = 10;
     this.data = new String [size];
+  }
+
+  public boolean isEmpty() {
+    return size() == 0;
   }
 
   public int size() {
