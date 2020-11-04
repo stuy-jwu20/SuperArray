@@ -28,6 +28,21 @@ public class SuperArray {
     return size() == 0;
   }
 
+  public String toString() {
+    String arrToString = "[";
+    for (int i = 0; i < size + 1; i++) {
+      if ((data[i] != null) && (i < size)) {
+        arrToString += data[i] + ", ";
+      }
+      else if ((data[i] != null) && (i == size - 1)) {
+        arrToString += data[i];
+      } else {
+      }
+    }
+    arrToString += "]";
+    return arrToString;
+  }
+
   public int size() {
     int numberItems = 0;
     for (int i = 0; i < size-1; i++) {
