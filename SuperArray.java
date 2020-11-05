@@ -123,8 +123,10 @@ public class SuperArray {
   }
 
   public String[] toArray() {
-    String[] safeArray = data;
+    String[] safeArray = new String [size];
+    for (int i = 0; i < size; i++) {
+      safeArray[i] = data[i];
+    }
     return safeArray;
   }
-
 }

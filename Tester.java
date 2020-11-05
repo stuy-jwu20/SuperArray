@@ -18,6 +18,9 @@ public class Tester {
     System.out.println(words.remove(0));
     System.out.println(words.toString());
     System.out.println(words.indexOf("addedString"));
-    System.out.println(words.toArray().toString());
+    SuperArray newArray = new SuperArray();
+    newArray.add("Ah");
+    newArray.toArray();
+    System.out.println(newArray.toString());
   }
 }
