@@ -80,7 +80,7 @@ public class SuperArray {
   }
 
   public boolean contains(String s) {
-    for (int i = 0; i < size() - 1; i++) {
+    for (int i = 0; i < size(); i++) {
       if (data[i].equals(s)) return true;
     }
     return false;
@@ -93,11 +93,16 @@ public class SuperArray {
 
   public void add(int index, String element) {
     if (size() == size) resize();
-    String tempString = "" + data[index];
-    set(index, element);
-    for (int i = index + 1; i < size() - 1; i++) {
-      set(i, tempString);
-      tempString = "" + data[i+1];
+    String firstTemp = "" + data[index];
+    String secondTemp = "";
+    for (int i = index; i < size - 1; i++) {
+      if (i == index) {
+        set(i, element);
+      } else {
+        secondTemp = firstTemp;
+        firstTemp = "" + data[i];
+        set(i, secondTemp);
+      }
     }
   }
 
@@ -114,7 +119,7 @@ public class SuperArray {
 
   public int indexOf(String s) {
     int firstIndex = -1;
-    for (int i = 0; i < size() - 1; i++) {
+    for (int i = 0; i < size(); i++) {
       if (data[i].equals(s)) {
         firstIndex = i;
       }
@@ -123,8 +128,8 @@ public class SuperArray {
   }
 
   public String[] toArray() {
-    String[] safeArray = new String [size];
-    for (int i = 0; i < size; i++) {
+    String[] safeArray = new String [size()];
+    for (int i = 0; i < size(); i++) {
       safeArray[i] = data[i];
     }
     return safeArray;
