@@ -135,4 +135,16 @@ public class SuperArray {
     }
     return safeArray;
   }
+
+/////////////////// Part 3 of SuperArray ///////////////////
+
+  public int lastIndexOf(String value) {
+    int firstIndex = -1;
+    for (int i = 0; i < size(); i++) {
+      if (data[i].equals(value)) {
+        firstIndex = i;
+      }
+    }
+    return firstIndex;
+  }
 }
