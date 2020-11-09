@@ -12,7 +12,6 @@ public class Demo {
 /////////////////// Part 3 of SuperArray ///////////////////
 
   public static void removeDuplicates(SuperArray s) {
-    System.out.println(s.toArray()[1]);
     for (int i = 0; i < (s.toArray().length); i++) {
       String toRemove = s.toArray()[i];
       int indexed = s.indexOf(toRemove);
