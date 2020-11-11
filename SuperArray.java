@@ -87,6 +87,9 @@ public class SuperArray {
   }
 
   public SuperArray(int initialCapacity) {
+    if (initialCapacity < 0) {
+      throw new IllegalArgumentException("\n ! Illegal Argument, your value is " + initialCapacity + " and we expected a value of at least 0. !");
+    }
     size = initialCapacity;
     data = new String [size];
   }
