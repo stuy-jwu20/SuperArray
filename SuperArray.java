@@ -50,7 +50,7 @@ public class SuperArray {
 
   public String get(int index) {
     if (index < 0 || index >= size()) {
-      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + size() + " but we received this from you: " + index + " !"); 
+      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
     }
     return "" + data[index];
   }
@@ -113,6 +113,9 @@ public class SuperArray {
   }
 
   public String remove(int index) {
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
+    }
     String removedString = "" + data[index];
     String tempString = "";
     for (int i = index; i < size() - 1; i++) {
