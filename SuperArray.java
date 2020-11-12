@@ -3,11 +3,7 @@ public class SuperArray {
   private int size;
 
   private void resize() {
-    if (size == 0) {
-      size += 1;
-    } else {
-    size = size * 2;
-    }
+    size = (size * 2) + 1;
     String[] largerArray = new String [size];
     for (int i = 0; i < data.length; i++) {
       largerArray[i] = data[i];
@@ -43,6 +39,13 @@ public class SuperArray {
   }
 
   public String set(int index, String element) {
+    try {
+      String oldValue = data[index];
+    } catch (IndexOutOfBoundsException e) {
+      if (index < 0 || index >= size()) {
+        throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
+      }
+    }
     String oldValue = data[index];
     data[index] = element;
     return oldValue;
@@ -69,13 +72,12 @@ public class SuperArray {
 
   public String toString() {
     String arrToString = "[";
-    for (int i = 0; i < size - 1; i++) {
-      if (i < size() -1) {
+    for (int i = 0; i < size; i++) {
+      if (i < size()-1) {
         arrToString += data[i] + ", ";
       }
-      else if ((i == size() - 1)) {
+      else if ((i == size()-1)) {
         arrToString += data[i];
-      } else {
       }
     }
     arrToString += "]";
@@ -98,6 +100,9 @@ public class SuperArray {
   }
 
   public void add(int index, String element) {
+    if (index < 0 || index > size()) {
+      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + size() + " but we received this from you: " + index + " !");
+    }
     if (size() == size) resize();
     String firstTemp = "" + data[index];
     String secondTemp = "";
