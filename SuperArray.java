@@ -71,7 +71,6 @@ public class SuperArray {
   }
 
   public String toString() {
-    System.out.println(size());
     String arrToString = "[";
     for (int i = 0; i < size(); i++) {
       if (i < size()-1) {
@@ -107,7 +106,7 @@ public class SuperArray {
     if (size() == size) resize();
     String firstTemp = "" + data[index];
     String secondTemp = "";
-    for (int i = index; i < size - 1; i++) {
+    for (int i = index; i < size; i++) {
       if (i == index) {
         set(i, element);
       } else {
