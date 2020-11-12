@@ -105,16 +105,12 @@ public class SuperArray {
     }
     if (size() == size) resize();
     String firstTemp = "" + data[index];
-    String secondTemp = "";
-    for (int i = index; i < size; i++) {
-      if (i == index) {
-        set(i, element);
-      } else {
-        secondTemp = firstTemp;
-        firstTemp = "" + data[i];
-        set(i, secondTemp);
-      }
+    for (int i = index; i < size - size() - 1; i++) {
+      String secondTemp = "" + data[i + 1];
+      set(i+1, firstTemp);
+      firstTemp = secondTemp;
     }
+    set(index, element);
   }
 
   public String remove(int index) {

@@ -27,7 +27,7 @@ public class Tester {
     // }
 
     // words.add(-1, "new word");
-    // words.add(1, "new word");
+    // words.add(7, "new word");
     // words.add(10, "new word");
     // System.out.println(words);
   }
