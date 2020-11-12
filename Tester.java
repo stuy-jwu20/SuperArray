@@ -1,14 +1,34 @@
 public class Tester {
   public static void main(String[] args) {
-    System.out.println("SuperArray Mini-Tester");
     SuperArray words = new SuperArray();
-    words.add("kani");   words.add("uni");     words.add("ebi");     words.add("una");
-    words.add("una");    words.add("ebi");     words.add("kani");    words.add("una");
-    words.add("una");    words.add("ebi");     words.add("toro");
-    SuperArray otherArray = new SuperArray();
-    otherArray.add("kani");   otherArray.add("uni");     otherArray.add("ebi");     otherArray.add("una");
-    otherArray.add("una");    otherArray.add("ebi");     otherArray.add("kani");    otherArray.add("una");
-    otherArray.add("una");    otherArray.add("ebi");     otherArray.add("toro");
-    System.out.println(words.equals(otherArray));
+    for (int i = 0; i < 10; i++) {
+      words.add("" + i);
+    }
+    System.out.println(words);
+
+    // for (int i = 5; i > -5; i--) {
+    //   SuperArray wordsTwo = new SuperArray(i);
+    //   System.out.println(words + " The array length created was " + i);
+    // }
+
+    // for (int i = 5; i <= words.size(); i++) {
+    //   words.get(i);
+    //   System.out.println(" The string we got was " + i);
+    // }
+
+    // for (int i = 5; i <= words.size(); i--) {
+    //     words.set(i, "replacer");
+    //     System.out.println(words);
+    // }
+
+    // for (int i = 5; i <= words.size(); i--) {
+    //     words.remove(i);
+    //     System.out.println(words);
+    // }
+
+    // words.add(-1, "new word");
+    // words.add(1, "new word");
+    // words.add(10, "new word");
+    // System.out.println(words);
   }
 }

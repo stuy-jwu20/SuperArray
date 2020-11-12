@@ -42,7 +42,7 @@ public class SuperArray {
     try {
       String oldValue = data[index];
     } catch (IndexOutOfBoundsException e) {
-      if (index < 0 || index >= size()) {
+      if (index >= size()) {
         throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
       }
     }
@@ -71,13 +71,14 @@ public class SuperArray {
   }
 
   public String toString() {
+    System.out.println(size());
     String arrToString = "[";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size(); i++) {
       if (i < size()-1) {
-        arrToString += data[i] + ", ";
+        arrToString += this.data[i] + ", ";
       }
-      else if ((i == size()-1)) {
-        arrToString += data[i];
+      else if (i == size()-1) {
+        arrToString += this.data[i];
       }
     }
     arrToString += "]";
