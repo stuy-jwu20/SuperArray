@@ -43,7 +43,7 @@ public class SuperArray {
       String oldValue = data[index];
     } catch (IndexOutOfBoundsException e) {
       if (index >= size()) {
-        throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
+        throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and less than " + size() + " but we received this from you: " + index + " !");
       }
     }
     String oldValue = data[index];
@@ -53,7 +53,7 @@ public class SuperArray {
 
   public String get(int index) {
     if (index < 0 || index >= size()) {
-      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + (size() - 1) + " but we received this from you: " + index + " !");
+      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and less than " + size() + " but we received this from you: " + index + " !");
     }
     return "" + data[index];
   }
@@ -103,10 +103,13 @@ public class SuperArray {
     if (index < 0 || index > size()) {
       throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + size() + " but we received this from you: " + index + " !");
     }
+    if (size() + 1 == size) {
+      resize();
+    }
     if (index == size()) {
       data[index] = element;
     }
-    else if ((index < size) && (index < size())) {
+    else if (index < size) {
       for (int i = size()+1; i > index; i--) {
         set(i, data[i-1]);
       }
