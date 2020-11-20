@@ -28,7 +28,7 @@ public class SuperArray {
     if (size() == size) resize();
     for (int i = size(); i < size; i++) {
       if (data[i] == null) {
-        set(i, element);
+        data[i] = element;
         return true;
       } else {
         System.out.println("Error! Something is wrong with your code...");
@@ -39,12 +39,8 @@ public class SuperArray {
   }
 
   public String set(int index, String element) {
-    try {
-      String oldValue = data[index];
-    } catch (IndexOutOfBoundsException e) {
-      if (index >= size()) {
-        throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and less than " + size() + " but we received this from you: " + index + " !");
-      }
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and less than " + size() + " but we received this from you: " + index + " !");
     }
     String oldValue = data[index];
     data[index] = element;
@@ -62,7 +58,7 @@ public class SuperArray {
 
   public void clear() {
     for (int i = 0; i < size; i++) {
-      set(i, null);
+      data[i] = null;
     }
   }
 
@@ -111,9 +107,9 @@ public class SuperArray {
     }
     else if (index < size) {
       for (int i = size()+1; i > index; i--) {
-        set(i, data[i-1]);
+        data[i] = data[i-1];
       }
-      set(index, element);
+      data[index] = element;
     }
   }
 
