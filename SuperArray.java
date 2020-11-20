@@ -106,7 +106,7 @@ public class SuperArray {
     if (index == size()) {
       data[index] = element;
     }
-    else if (index < size()) {
+    else if ((index < size) && (index < size())) {
       for (int i = size()+1; i > index; i--) {
         set(i, data[i-1]);
       }
