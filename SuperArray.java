@@ -103,14 +103,15 @@ public class SuperArray {
     if (index < 0 || index > size()) {
       throw new IndexOutOfBoundsException("\n ! Your index is out of bounds! It should be at least 0 and at most " + size() + " but we received this from you: " + index + " !");
     }
-    if (size() == size) resize();
-    String firstTemp = "" + data[index];
-    for (int i = index; i < size - size() - 1; i++) {
-      String secondTemp = "" + data[i + 1];
-      set(i+1, firstTemp);
-      firstTemp = secondTemp;
+    if (index == size()) {
+      data[index] = element;
     }
-    set(index, element);
+    else if (index < size()) {
+      for (int i = size()+1; i > index; i--) {
+        set(i, data[i-1]);
+      }
+      set(index, element);
+    }
   }
 
   public String remove(int index) {
